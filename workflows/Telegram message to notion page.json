@@ -1,0 +1,93 @@
+{
+  "active": true,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Notion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-10T18:12:32.867Z",
+  "id": "923TAzRqwJtecjVr",
+  "meta": null,
+  "name": "Telegram message to notion page",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "545aea5b-a6fd-4a33-9f1b-8fef8810424d",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [
+        500,
+        400
+      ],
+      "webhookId": "8cfbedad-e1da-42fc-80ff-7333f81aadf9",
+      "credentials": {
+        "telegramApi": {
+          "id": "VVepH2o19ks7shfD",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pageId": {
+          "__rl": true,
+          "value": "fac6d57f1fbc42ce9170d2477c5907e6",
+          "mode": "id"
+        },
+        "title": "={{ $json.message.text }}",
+        "options": {}
+      },
+      "id": "ea53bbb2-ae1d-447b-9d80-ca131910ca7c",
+      "name": "Notion",
+      "type": "n8n-nodes-base.notion",
+      "typeVersion": 2.1,
+      "position": [
+        780,
+        400
+      ],
+      "credentials": {
+        "notionApi": {
+          "id": "84K17WMgQ3dPFCPi",
+          "name": "Notion account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Create your own telegram access token in order to test the action",
+        "color": 2
+      },
+      "id": "3a27c694-5396-4a78-a5e6-79d8de2fd554",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        140,
+        380
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-10T18:57:59.000Z",
+  "versionId": "f1460c50-f839-45c3-b643-99be25baba4f"
+}
