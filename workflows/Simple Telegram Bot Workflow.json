@@ -1,0 +1,115 @@
+{
+  "active": true,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-04T06:09:51.412Z",
+  "id": "9fQkXxRMLdXlE1Qd",
+  "meta": null,
+  "name": "Simple Telegram Bot Workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "dfc9401e-987f-400a-909c-d1f9cdf078e0",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [
+        880,
+        400
+      ],
+      "webhookId": "d173b633-09dc-42ae-ac4f-2e4008190c54",
+      "credentials": {
+        "telegramApi": {
+          "id": "x9KqZ0B9zq104KqB",
+          "name": "upwork_n8n_test_bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.from.id }}",
+        "text": "={{ \"Hello \" + $json.message.text }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "id": "3cd293c8-5882-4d3f-88a5-447964e90142",
+      "name": "Telegram",
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.1,
+      "position": [
+        1100,
+        400
+      ],
+      "credentials": {
+        "telegramApi": {
+          "id": "x9KqZ0B9zq104KqB",
+          "name": "upwork_n8n_test_bot"
+        }
+      }
+    }
+  ],
+  "pinData": {
+    "Telegram Trigger": [
+      {
+        "json": {
+          "update_id": 959290398,
+          "message": {
+            "message_id": 1,
+            "from": {
+              "id": 524646430,
+              "is_bot": false,
+              "first_name": "Bowei",
+              "last_name": "G",
+              "username": "tbgai",
+              "language_code": "en"
+            },
+            "chat": {
+              "id": 524646430,
+              "first_name": "Bowei",
+              "last_name": "G",
+              "username": "tbgai",
+              "type": "private"
+            },
+            "date": 1704533955,
+            "text": "/start",
+            "entities": [
+              {
+                "offset": 0,
+                "length": 6,
+                "type": "bot_command"
+              }
+            ]
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-10T08:37:26.000Z",
+  "versionId": "10966947-be14-4e99-b61f-f9aafe0c241b"
+}
