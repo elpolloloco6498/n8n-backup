@@ -1,0 +1,146 @@
+{
+  "active": true,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Airtable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-10T18:58:56.423Z",
+  "id": "fhCvz0amnStFukIy",
+  "meta": null,
+  "name": "Telegram message to Airtable",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "2a5d6d83-ff25-47e9-9b53-f0a6ea7e347e",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [
+        680,
+        380
+      ],
+      "webhookId": "ee369c78-a301-49a1-a82b-4fa112187ce1",
+      "credentials": {
+        "telegramApi": {
+          "id": "VVepH2o19ks7shfD",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "base": {
+          "__rl": true,
+          "value": "app4c27nklEkLXMlR",
+          "mode": "list",
+          "cachedResultName": "Untitled Base",
+          "cachedResultUrl": "https://airtable.com/app4c27nklEkLXMlR"
+        },
+        "table": {
+          "__rl": true,
+          "value": "tblBb4g4PSp06pnVX",
+          "mode": "list",
+          "cachedResultName": "Table 1",
+          "cachedResultUrl": "https://airtable.com/app4c27nklEkLXMlR/tblBb4g4PSp06pnVX"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Sender": "={{ $json.message.from.username }}",
+            "Message": "={{ $json.message.text }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Sender",
+              "displayName": "Sender",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            },
+            {
+              "id": "Message",
+              "displayName": "Message",
+              "required": false,
+              "defaultMatch": false,
+              "canBeUsedToMatch": true,
+              "display": true,
+              "type": "string",
+              "readOnly": false,
+              "removed": false
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "9c9b14bb-969a-4f7b-9613-c8dff6379bdd",
+      "name": "Airtable",
+      "type": "n8n-nodes-base.airtable",
+      "typeVersion": 2,
+      "position": [
+        1000,
+        380
+      ],
+      "credentials": {
+        "airtableTokenApi": {
+          "id": "yxJZsbhgfn3cyNZV",
+          "name": "Airtable Personal Access Token account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "content": "## Create your own access token for telegram"
+      },
+      "id": "57cd66dd-2505-4245-a4ff-13493931f715",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        360,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "content": "My result is available here:\nhttps://airtable.com/app4c27nklEkLXMlR/shrGmgK6A5rvx8UlC"
+      },
+      "id": "f2f67df3-f07d-4975-bda8-f50456027b7a",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1240,
+        380
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-10T19:07:06.000Z",
+  "versionId": "fade32ac-fdd0-4ee4-a3ce-2dbd299afed6"
+}
