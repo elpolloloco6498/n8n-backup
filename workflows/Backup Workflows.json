@@ -1,0 +1,18 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2024-01-10T13:33:34.164Z",
+  "id": "Z23DuG5gYLWmypNc",
+  "meta": null,
+  "name": "Backup Workflows",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-01-10T13:33:34.164Z",
+  "versionId": "e7f58d57-1ae5-46a7-bdd7-af65850484a6"
+}
