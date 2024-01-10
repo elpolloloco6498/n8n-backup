@@ -1,0 +1,79 @@
+{
+  "active": true,
+  "connections": {
+    "n8n Form Trigger": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-04T13:42:39.799Z",
+  "id": "RD5QsRWGp6dNKapy",
+  "meta": null,
+  "name": "Blender Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "method": "POST",
+        "url": " https://ebf9-45-154-90-241.ngrok-free.app/generation/render",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "text",
+              "value": "={{ $json.text }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e971c23e-4ce2-41c8-9728-a0ada912c458",
+      "name": "HTTP Request",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1280,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "path": "f234f0f7-3173-43c6-b0fe-24c9ab5f60e4",
+        "formTitle": "Blender Automation",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "text",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "8c3abdd8-994e-449c-9228-95de25614f04",
+      "name": "n8n Form Trigger",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2,
+      "position": [
+        840,
+        400
+      ],
+      "webhookId": "f234f0f7-3173-43c6-b0fe-24c9ab5f60e4"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 2,
+  "updatedAt": "2024-01-09T09:21:55.000Z",
+  "versionId": "f750cce7-f4d5-4b12-8c20-85007e2f1be7"
+}
