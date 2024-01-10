@@ -1,0 +1,149 @@
+{
+  "active": true,
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Get attachment Link",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-10T16:40:45.377Z",
+  "id": "jih8gmtk1So6G3wH",
+  "meta": null,
+  "name": "Email attachment to drive",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "## email attachment -> upload attachment to google drive",
+        "height": 110,
+        "width": 386
+      },
+      "id": "09defc6c-eca8-4b9f-a6ae-ea88544f5d44",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        200,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "simple": false,
+        "filters": {},
+        "options": {
+          "downloadAttachments": true
+        }
+      },
+      "id": "d4fd1a5b-b3a8-4dcd-8f35-b03b0b5cff09",
+      "name": "Gmail Trigger",
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1,
+      "position": [
+        500,
+        440
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "RJ1Xu1joClJeyn0J",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputDataFieldName": "attachment_0",
+        "name": "={{$input.item.binary.attachment_0.fileName}}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1HcTzZRWB4SDdB0BNYLJoNi2l_ZndUeD4",
+          "mode": "list",
+          "cachedResultName": "attachments_mail_n8n",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1HcTzZRWB4SDdB0BNYLJoNi2l_ZndUeD4"
+        },
+        "options": {}
+      },
+      "id": "ec9189dd-022d-4b38-ab2b-3374cafbe3b4",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        820,
+        440
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "LjIPfSX0YvVTOhM3",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "keepOnlySet": true,
+        "values": {
+          "string": [
+            {
+              "name": "attachment",
+              "value": "={{$json[\"webViewLink\"]}}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "name": "Get attachment Link",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        1100,
+        440
+      ],
+      "typeVersion": 1,
+      "id": "51493364-ab31-4079-8f18-85718d523977"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Gmail Trigger": {
+      "lastTimeChecked": 1704910692,
+      "possibleDuplicates": [
+        "18cf49d73444fc8c"
+      ]
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-10T18:24:08.000Z",
+  "versionId": "eff60522-ad29-4b9b-8a98-cf63f36f0823"
+}
