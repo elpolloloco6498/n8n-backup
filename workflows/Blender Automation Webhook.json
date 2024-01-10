@@ -1,0 +1,111 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-09T09:19:54.265Z",
+  "id": "L22AjJSnaoun8xXq",
+  "meta": null,
+  "name": "Blender Automation Webhook",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "83395fc9-4b11-45e8-8676-7237e894e18d",
+        "options": {}
+      },
+      "id": "0d328f07-7bff-4d12-9d1a-77c54195d9bf",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [
+        580,
+        400
+      ],
+      "webhookId": "83395fc9-4b11-45e8-8676-7237e894e18d"
+    },
+    {
+      "parameters": {
+        "name": "test_render.png",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "root",
+          "cachedResultName": "/ (Root folder)"
+        },
+        "options": {}
+      },
+      "id": "f43b281d-c097-44da-84af-be58f3b11cc3",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        860,
+        400
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "LjIPfSX0YvVTOhM3",
+          "name": "Google Drive account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "ishamletenoux@gmail.com",
+        "subject": "Scene rendered",
+        "message": "=Hi the scene was rendered. You can find the image at:  {{ $json.webViewLink }}",
+        "options": {}
+      },
+      "id": "4b0362fd-7919-4b4e-8037-abe82a701ba6",
+      "name": "Gmail",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        1120,
+        400
+      ],
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "RJ1Xu1joClJeyn0J",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-09T12:35:06.000Z",
+  "versionId": "2afb0df5-15da-454b-b463-5164758b8a75"
+}
