@@ -1,0 +1,69 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-10T14:00:16.080Z",
+  "id": "q78OzFlDpRE4BljW",
+  "meta": null,
+  "name": "test backup workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "1d5043d6-0c97-4874-8ed4-e9573fed0e82",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        620,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "1zZOmx8P3O9mgm1t5DiXH3b-3tc19JjLT",
+          "mode": "list",
+          "cachedResultName": "._guide_projet 2019-2020 (1).pdf",
+          "cachedResultUrl": "https://drive.google.com/file/d/1zZOmx8P3O9mgm1t5DiXH3b-3tc19JjLT/view?usp=drivesdk"
+        },
+        "options": {}
+      },
+      "id": "41ac924e-7f24-44f0-9500-288532a58a67",
+      "name": "Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        920,
+        360
+      ],
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "LjIPfSX0YvVTOhM3",
+          "name": "Google Drive account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-01-10T14:00:49.000Z",
+  "versionId": "ddd5b5b7-6ce0-4fa6-93a1-3f541f3d6481"
+}
