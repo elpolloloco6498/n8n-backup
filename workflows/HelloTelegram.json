@@ -1,0 +1,74 @@
+{
+  "active": true,
+  "connections": {
+    "Telegram Trigger": {
+      "main": [
+        [
+          {
+            "node": "Hello Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-10T16:29:11.049Z",
+  "id": "QKqI3BbA5Pv9N0PH",
+  "meta": null,
+  "name": "HelloTelegram",
+  "nodes": [
+    {
+      "parameters": {
+        "chatId": "={{ $json.message.chat.id }}",
+        "text": "={{ $json.message.text }}"
+      },
+      "id": "93917dd4-999e-44f9-95fc-56d23547adeb",
+      "name": "Hello Telegram",
+      "type": "CUSTOM.helloTelegram",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        320
+      ],
+      "credentials": {
+        "helloTelegramApi": {
+          "id": "L5kqPkC8hcDLtvq1",
+          "name": "Hello Telegram Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "id": "79bff634-bddb-40ea-8333-653a103a781d",
+      "name": "Telegram Trigger",
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1,
+      "position": [
+        640,
+        320
+      ],
+      "webhookId": "58659d79-99e1-4f63-9a56-020984dc52d2",
+      "credentials": {
+        "telegramApi": {
+          "id": "VVepH2o19ks7shfD",
+          "name": "Telegram account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2024-01-10T18:56:16.000Z",
+  "versionId": "ef1aaa30-aaa3-4317-aded-2a5e0c1bb89f"
+}
