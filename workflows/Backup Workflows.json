@@ -94,17 +94,6 @@
         ]
       ]
     },
-    "GitHub Edit": {
-      "main": [
-        [
-          {
-            "node": "OneAtATime",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "isDiffOrNew": {
       "main": [
         [
@@ -168,6 +157,17 @@
         [
           {
             "node": "Globals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GitHub Edit": {
+      "main": [
+        [
+          {
+            "node": "OneAtATime",
             "type": "main",
             "index": 0
           }
@@ -280,32 +280,6 @@
         860
       ],
       "typeVersion": 1
-    },
-    {
-      "parameters": {
-        "authentication": "oAuth2",
-        "resource": "file",
-        "operation": "edit",
-        "owner": "={{$node[\"Globals\"].json[\"repo\"][\"owner\"]}}",
-        "repository": "={{$node[\"Globals\"].json[\"repo\"][\"name\"]}}",
-        "filePath": "={{$node[\"Globals\"].json[\"repo\"][\"path\"]}}{{$node[\"OneAtATime\"].json[\"name\"]}}.json",
-        "fileContent": "={{$node[\"isDiffOrNew\"].json[\"n8n_data_stringy\"]}}",
-        "commitMessage": "=[N8N Backup] {{$node[\"OneAtATime\"].json[\"name\"]}}.json ({{$json[\"github_status\"]}})"
-      },
-      "id": "aa780874-97b3-428b-9de1-d225fd3431b1",
-      "name": "GitHub Edit",
-      "type": "n8n-nodes-base.github",
-      "position": [
-        920,
-        680
-      ],
-      "typeVersion": 1,
-      "credentials": {
-        "githubOAuth2Api": {
-          "id": "UIQp8Gp8y8pRx7vh",
-          "name": "GitHub account"
-        }
-      }
     },
     {
       "parameters": {
@@ -482,6 +456,32 @@
         680
       ],
       "typeVersion": 2
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "edit",
+        "owner": "={{$node[\"Globals\"].json[\"repo\"][\"owner\"]}}",
+        "repository": "={{$node[\"Globals\"].json[\"repo\"][\"name\"]}}",
+        "filePath": "={{$node[\"Globals\"].json[\"repo\"][\"path\"]}}{{$node[\"OneAtATime\"].json[\"name\"]}}.json",
+        "fileContent": "={{$node[\"isDiffOrNew\"].json[\"n8n_data_stringy\"]}}",
+        "commitMessage": "=[N8N Backup] {{$node[\"OneAtATime\"].json[\"name\"]}}.json ({{$json[\"github_status\"]}})"
+      },
+      "id": "bc37e3d8-a37b-42e4-9934-67e6979bc7d0",
+      "name": "GitHub Edit",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        920,
+        680
+      ],
+      "typeVersion": 1,
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "UIQp8Gp8y8pRx7vh",
+          "name": "GitHub account"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -498,6 +498,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2024-01-10T13:54:45.000Z",
-  "versionId": "bf37bacc-4846-4406-80f5-ac46e3cb8ddd"
+  "updatedAt": "2024-01-10T14:21:59.000Z",
+  "versionId": "8c918d66-288c-45be-9cd8-93f34482b0cc"
 }
