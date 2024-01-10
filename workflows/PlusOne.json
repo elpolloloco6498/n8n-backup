@@ -1,0 +1,79 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Plus One",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2024-01-10T16:28:14.860Z",
+  "id": "EAp1c344YtRlW7fp",
+  "meta": null,
+  "name": "PlusOne",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "87834c56-e0ea-44ce-a111-9f99887845e1",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        440,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "myNumber": "={{ $json.num }}"
+      },
+      "id": "0e5d5681-c56a-4f9c-84d4-e0cfdb64104e",
+      "name": "Plus One",
+      "type": "CUSTOM.plusOne",
+      "typeVersion": 1,
+      "position": [
+        980,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "return [{\n  num: 0\n}]"
+      },
+      "id": "9e6f8662-881c-4893-90cf-c1b88ff0e1bf",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        720,
+        400
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2024-01-10T16:28:45.000Z",
+  "versionId": "47d27c6d-3cce-4837-8234-6c5ab197d80e"
+}
